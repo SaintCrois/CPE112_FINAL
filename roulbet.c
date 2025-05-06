@@ -166,7 +166,7 @@ void printPlayerBets(GameNode *player) {
 void addBetToPlayer(GameNode *player, char type[10], int input[], int inputMoney, int addToUndoStack, int inputAction)
 {
 
-    if(inputMoney > player->cash)
+    if(inputMoney > player->cash && addToUndoStack == 0)
     {
         printf("Not enough money.");
         Sleep(1500);
