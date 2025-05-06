@@ -365,9 +365,9 @@ int check2(int input[])
 
 int check3(int input[])
 {
-    for (int i = 0; i < 3; i++) {
-        printf("_%d_ ", input[i]);
-    }
+    // for (int i = 0; i < 3; i++) {
+    //     printf("_%d_ ", input[i]);
+    // }
     if (input[0] == 0 && input[1] == 1 && input[2]== 2) 
     return 1;
     else if (input[0] == 0 && input[1] == 2 && input[2]== 3)
