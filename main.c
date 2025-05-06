@@ -364,26 +364,24 @@ int main() {
 GameNode* sortedMerge(GameNode* a, GameNode* b) {
     GameNode* result = NULL;
 
-    if (a == NULL)
-        return b;
-    else if (b == NULL)
+    if(a == NULL) return b;
+    else if (b == NULL) {
         return a;
-
-    if (a->cash >= b->cash) {
+    }
+    if(a->cash >= b->cash) {
         result = a;
         result->next = sortedMerge(a->next, b);
     } else {
         result = b;
         result->next = sortedMerge(a, b->next);
     }
-
     return result;
 }
 
 void frontBackSplit(GameNode* source, GameNode** frontRef, GameNode** backRef) {
     GameNode* fast;
     GameNode* slow;
-    if (source == NULL || source->next == NULL) {
+    if(source == NULL || source->next == NULL) {
         *frontRef = source;
         *backRef = NULL;
         return;
@@ -391,7 +389,7 @@ void frontBackSplit(GameNode* source, GameNode** frontRef, GameNode** backRef) {
 
     slow = source;
     fast = source->next;
-    while (fast != NULL) {
+    while(fast != NULL) {
         fast = fast->next;
         if (fast != NULL) {
             slow = slow->next;
@@ -408,8 +406,7 @@ void mergeSort(GameNode** headRef) {
     GameNode* a;
     GameNode* b;
 
-    if (head == NULL || head->next == NULL)
-        return;
+    if(head == NULL || head->next == NULL) return;
 
     frontBackSplit(head, &a, &b);
 
